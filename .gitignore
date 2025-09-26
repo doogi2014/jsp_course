@@ -39,3 +39,7 @@ tmp/
 local.properties
 .loadpath
 .factorypath
+##############################
+## Others
+##############################
+/Servers
