@@ -1,0 +1,8 @@
+1 按照《springboot環境構築（中文）.xlsx》的说明操作
+2 项目启动时不要使用【选择 Run As → Spring Boot App。】的方式启动
+	Run As → Java Application，使用该方式运行
+3 直接复制【gs-accessing-data-mysql-main\complete】项目下的以下java文件到当前项目
+	MainController.java
+	User.java
+	UserRepository.java
+	启动项目后，实体类对应的数据库表会被创建，通过Get/Post请求可以实现数据读取与写入
