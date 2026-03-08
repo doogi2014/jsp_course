@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>勤怠管理システム</title>
+</head>
+<body>
+	<h1>勤怠管理システム</h1>
+<!-- 
+	在前台把后台传的值取出来 
+	<p th:text="${num}"></p>
+	<p th:text="${name}"></p>
+	<p th:text="${employee.employee_name}"></p>
+	
+	<form method="post" th:action="@{/demo/testform}" >
+		<input id ="id" name="id" type="text" />
+		<input id ="password" name="password" type="text" />
+		<input type="submit" value="TEST"/>
+	</form>
+	
+	<div th:each="employee:${employees}">
+       姓名：<input id="emp_name" name="emp_name" th:value="${employee.employee_name}"/> <br>
+       年龄：<input id="emp_age" name="emp_age" th:value="${employee.employee_age}"/> <br>
+	</div> -->
+	<form method="post" th:action="@{/demo/search}" >
+	<div style="width:800px; margin: auto;top: 0;left: 0;right: 0;bottom: 0; border-width:1px;border-color:#000;border-style:solid">
+	社員ID　<input id ="employee_id" name="employee_id" type="text" /><input type="submit" value="検索" style="width:100px;"/>
+	</div>
+	
+	<div style="width:800px; margin: auto;top: 0;left: 0;right: 0;bottom: 0; border-width:1px;border-color:#000;border-style:solid">
+	所属　<select name="dept_id" id="dept_id" style="width:100px;">
+		<option value=""> </option>
+        <option value="人事部">人事部</option>
+        <option value="経理部">経理部</option>
+        <option value="営業部">営業部</option>
+      </select>
+	</div>
+	
+	<div style="width:800px; margin: auto;top: 0;left: 0;right: 0;bottom: 0; border-width:1px;border-color:#000;border-style:solid">
+	入社年月日　<input id ="employee_start_date_b" name="employee_start_date_b" type="text" /> ～ <input id ="employee_start_date_e" name="employee_start_date_e" type="text" />
+	<input type="checkbox" id="employee_enrollment" name="employee_enrollment" value="value1"><label for="employee_enrollment">在籍中</label>
+	</div>
+	
+	<div style="width:800px;text-align:right; margin: auto;top: 0;left: 0;right: 0;bottom: 0; border-width:1px;border-color:#000;border-style:solid">
+	<input type="submit" value="新規" style="width:100px;"/>
+	<input type="submit" value="削除" style="width:100px;"/>
+	<input type="submit" value="閉じる" style="width:100px;"/>
+	</div>
+	</form>
+	
+	<div style="height:300px;width:800px;overflow-y:scroll;background:#EEEEEE; margin: auto;top: 0;left: 0;right: 0;bottom: 0;">
+	<table border="1" width="780" align="center">
+		<tr>
+			<th>選択</th>
+			<th>社員ID</th>
+		    <th>入社年月日</th>
+		    <th>氏名</th>
+		    <th>性別</th>
+		    <th>年齢</th>
+		    <th>所属</th>
+		    <th>在籍</th>
+		    <th>メールアドレス</th>
+ 			<th>編集</th>
+		</tr>
+		<tr th:each="employee:${employees}" >
+			<td><input type="checkbox" id="myCheckbox" name="option1" value="value1"></td>
+			<td th:text="${employee.employee_id}"></td>
+			<td th:text="${employee.employee_start_date}"></td>
+			<td th:text="${employee.employee_name}"></td>
+			<td th:text="${employee.employee_gender}"></td>
+		    <td th:text="${employee.employee_age}"></td>
+		    <td th:text="${employee.dept_id}"></td>
+		    <td th:text="${employee.employee_enrollment}"></td>
+		    <td th:text="${employee.employee_email}"></td>
+		    <td><input type="submit" value="編集" style="width:100px;"/></td>
+		</tr>
+	</table>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>倉庫管理システム</title>
+</head>
+<body>
+	<h1>倉庫管理システム</h1>
+ 	<h2>倉庫管理システム</h2>
+ 	
+ 	<form method="post" th:action="@{/demo/search}" >
+ 	<div>
+ 		在庫ID：<input id="warehouse_id" name="warehouse_id" th:value="${warehouse.id}"/> <br>
+    	在庫商品名称：<input id="warehouse_name" name="warehouse_name" th:value="${warehouse.name}"/> <br>
+    	単位：<input id="warehouse_unit" name="warehouse_unit" th:value="${warehouse.unit}"/> <br>
+       	作成日時：<input id="warehouse_create_date" name="warehouse_create_date" th:value="${warehouse.create_date}"/> <br>
+       	備考：<input id="warehouse_remarks" name="warehouse_remarks" th:value="${warehouse.remarks}"/> <br>
+	</div>
+	
+	<input type="submit" value="登録" style="width:100px;"/>
+	</form>
+</body>
+</html>
